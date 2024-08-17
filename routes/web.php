@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KatalogController;
+use App\Http\Controllers\BumdesWisataController;
 
 Route::get('/', function () {
     return view('index');
@@ -28,6 +29,18 @@ Route::prefix('admin')->group(function () {
         'edit' => 'admin.katalog.edit',
         'update' => 'admin.katalog.update',
         'destroy' => 'admin.katalog.destroy',
+    ]);
+});
+
+Route::prefix('admin')->group(function () {
+    Route::resource('/bumdes-wisata', BumdesWisataController::class)->names([
+        'index' => 'admin.bumdes-wisata.index',
+        'create' => 'admin.bumdes-wisata.create',
+        'store' => 'admin.bumdes-wisata.store',
+        'show' => 'admin.bumdes-wisata.show',
+        'edit' => 'admin.bumdes-wisata.edit',
+        'update' => 'admin.bumdes-wisata.update',
+        'destroy' => 'admin.bumdes-wisata.destroy',
     ]);
 });
 

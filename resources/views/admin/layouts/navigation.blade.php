@@ -18,7 +18,7 @@
                     <x-nav-link :href="route('admin.katalog.index')" :active="request()->routeIs('katalog.index')">
                         {{ __('Katalog') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('admin.katalog.index')" :active="request()->routeIs('manajemen.bumdes')">
+                    <x-nav-link :href="route('admin.bumdes-wisata.index')" :active="request()->routeIs('admin.bumdes-wisata.index')">
                         {{ __('Manajemen Bumdes & Wisata') }}
                     </x-nav-link>
                     <x-nav-link :href="route('admin.katalog.index')" :active="request()->routeIs('profile.desa')">
@@ -78,6 +78,15 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('admin.dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.katalog.index')" :active="request()->routeIs('admin.katalog.index')">
+            {{ __('Katalog') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.bumdes-wisata.index')" :active="request()->routeIs('admin.bumdes-wisata.index')">
+            {{ __('Manajemen Bumdes & Wisata') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.katalog.index')" :active="request()->routeIs('profile.desa')">
+            {{ __('Profile Desa') }}
             </x-responsive-nav-link>
         </div>
 
