@@ -13,9 +13,12 @@ Portal Desa adalah aplikasi berbasis web untuk manajemen katalog desa, termasuk 
 ### 0. Install
 
 Install Herd 
+
 lalu buka Herd ke PHP 
+
 download PHP 8.2
-lalu ke dashboard di global php version set php ke 8.2
+
+lalu ke dashboard, di global php version, set php ke 8.2
 
 lalu buka explorer
 ```bash
