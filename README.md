@@ -8,7 +8,38 @@ Portal Desa adalah aplikasi berbasis web untuk manajemen katalog desa, termasuk 
 - [Composer](https://getcomposer.org/) untuk mengelola dependensi PHP.
 - [SQLite](https://www.sqlite.org/index.html) sebagai basis data.
 
-## Installation
+## Quick Installation
+
+### 0. Install
+
+Install Herd 
+
+lalu buka Herd ke PHP 
+
+download PHP 8.2
+
+lalu ke dashboard, di global php version, set php ke 8.2
+
+lalu buka explorer
+```bash
+%USERPROFILE%\Herd\
+```
+lalu
+```bash
+git clone https://github.com/KKNT-UNUSIDA-2024/PortalDesaKupang.git
+cd PortalDesaKupang
+```
+lalu install dependencies
+```bash
+composer install
+php artisan key:generate
+npm install
+```
+jika sudah
+restart Herd(Exit and relaunch)
+
+akses bisa di lihat di Menu Herd lalu Quick access lalu open sites
+
 
 ### 1. Clone the Repository
 
