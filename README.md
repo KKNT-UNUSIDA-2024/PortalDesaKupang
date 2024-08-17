@@ -1,5 +1,3 @@
-Tentu! Berikut adalah template `README.md` yang bisa Anda gunakan untuk proyek Laravel dengan Herd di Windows dan SQLite sebagai basis data. Anda bisa menyesuaikan informasi sesuai kebutuhan proyek Anda.
-
 ```markdown
 # Portal Desa
 
