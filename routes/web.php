@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KatalogController;
 use App\Http\Controllers\BumdesWisataController;
+use App\Http\Controllers\ProfilDesaController;
 
 Route::get('/', function () {
     return view('index');
@@ -44,15 +45,23 @@ Route::prefix('admin')->group(function () {
     ]);
 });
 
+Route::middleware(['auth'])->prefix('admin')->group(function () {
+    Route::get('profildesa/edit', [ProfildesaController::class, 'edit'])->name('admin.profildesa.edit');
+    Route::patch('profildesa/update', [ProfildesaController::class, 'update'])->name('admin.profildesa.update');
+});
 
 
 require __DIR__.'/auth.php';
 
 
 // Front End
+Route::get('/profile/edit', [ProfilDesaController::class, 'edit'])->name('profile.edit');
+
 
 Route::get('/katalog', [KatalogController::class, 'publicIndex'])->name('katalog.index');
 Route::get('/katalog/{katalog}', [KatalogController::class, 'publicShow'])->name('katalog.show');
 
 Route::get('/bumdes', [KatalogController::class, 'publicIndex'])->name('bumdes.public.index');
 Route::get('/profile', [KatalogController::class, 'publicIndex'])->name('profile.public.index');
+
+Route::get('/profile-desa', [ProfilDesaController::class, 'show'])->name('profile-desa.show');

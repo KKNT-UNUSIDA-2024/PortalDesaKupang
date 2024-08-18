@@ -5,7 +5,7 @@
     <h1 class="text-2xl font-bold mb-4">{{ $profileDesa->nama_desa }}</h1>
 
     @if($profileDesa->logo_desa)
-        <img src="{{ asset('storage/' . $profilDesa->logo_desa) }}" alt="Logo Desa" class="mb-4">
+        <img src="{{ asset('storage/' . $profileDesa->logo_desa) }}" alt="Logo Desa" class="mb-4">
     @endif
 
     <p><strong>Alamat:</strong> {{ $profileDesa->alamat_desa }}</p>

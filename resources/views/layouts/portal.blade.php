@@ -13,7 +13,6 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @livewireStyles
     @stack('styles')
 </head>
 <body class="font-sans antialiased bg-gray-100 dark:bg-gray-900">
@@ -64,7 +63,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    @livewireScripts
     @stack('scripts')
     <script>
         function toggleMobileMenu() {
