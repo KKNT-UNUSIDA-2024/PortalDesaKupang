@@ -4,9 +4,7 @@ Portal Desa adalah aplikasi berbasis web untuk manajemen katalog desa, termasuk 
 
 ## Prerequisites
 
-- [Herd](https://laravel.com/docs/herd) di Windows untuk menjalankan proyek Laravel.
-- [Composer](https://getcomposer.org/) untuk mengelola dependensi PHP.
-- [SQLite](https://www.sqlite.org/index.html) sebagai basis data.
+- [Herd](https://herd.laravel.com/windows) di Windows untuk menjalankan proyek Laravel.
 
 ## Quick Installation
 
@@ -40,72 +38,9 @@ restart Herd(Exit and relaunch)
 
 akses bisa di lihat di Menu Herd lalu Quick access lalu open sites
 
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/username/repository-name.git
-cd repository-name
-```
-
-### 2. Install Dependencies
-
-Pastikan Anda telah menginstal Composer. Kemudian, jalankan perintah berikut untuk menginstal dependensi proyek:
-
-```bash
-composer install
-```
-
-### 3. Setup Environment File
-
-Salin file `.env.example` ke `.env`:
-
-```bash
-cp .env.example .env
-```
-
-### 4. Configure the Database
-
-Buka file `.env` dan atur konfigurasi database SQLite:
-
-```env
-DB_CONNECTION=sqlite
-DB_DATABASE=/path/to/your/database.sqlite
-```
-
-Ganti `/path/to/your/database.sqlite` dengan path yang sesuai di sistem Anda. Pastikan file SQLite dapat diakses dan ditulis oleh aplikasi.
-
-### 5. Generate Application Key
-
-Jalankan perintah berikut untuk menghasilkan kunci aplikasi Laravel:
-
-```bash
-php artisan key:generate
-```
-
-### 6. Migrate Database
-
-Jalankan migrasi untuk membuat tabel di basis data:
-
-```bash
-php artisan migrate
-```
-
-### 7. Serve the Application
-
-Gunakan Herd untuk menjalankan aplikasi Laravel. Pastikan Herd berjalan dan Anda dapat mengakses aplikasi melalui `http://localhost`.
-
-```bash
-php artisan serve
-```
-
-## Usage
-
-Setelah aplikasi berjalan, Anda dapat mengaksesnya melalui `http://localhost`. Aplikasi ini memiliki beberapa fitur utama:
-
-- **Katalog**: Menampilkan daftar katalog desa.
-- **Bumdes**: Informasi mengenai Bumdes.
-- **Profil Desa**: Informasi mengenai profil desa.
+localhost/admin
+me@admin.com
+123456789
 
 ## Routes
 

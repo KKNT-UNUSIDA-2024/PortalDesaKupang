@@ -12,7 +12,6 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @livewireStyles
     @stack('styles')    
 </head>
 <body class="font-sans antialiased dark:bg-gray-900">
@@ -63,7 +62,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    @livewireScripts
     @stack('scripts')
     <script>
         function toggleMobileMenu() {
