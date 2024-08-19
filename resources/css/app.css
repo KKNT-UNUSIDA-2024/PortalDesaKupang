@@ -179,3 +179,95 @@
     height: calc(100vh - 4rem);
   }
 }
+
+/* isi */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ini untuk font */
+.poppins-medium {
+font-family: "Poppins", system-ui;
+font-weight: 500;
+font-style: normal;
+}
+
+/* Mengatur video agar mengisi seluruh layar */
+/* Tambahkan ini ke dalam file CSS Anda, misalnya navbar.css */
+
+
+/* Untuk memastikan video memutar tanpa batas */
+
+/* Mengatur konten dengan margin dari atas 20vh */
+.isi {
+  position: relative; /* Konten tetap berada di atas video */
+  color: white; /* Warna teks putih agar terlihat jelas di atas video */
+  z-index: 1; /* Z-index untuk konten agar berada di atas video */
+  padding: 20px; /* Padding untuk konten */
+  margin-top: 20vh; /* Margin atas 20% dari tinggi viewport */
+  max-width: 800px; /* Maksimal lebar konten */
+  margin-left: 20px; /* Jarak kiri jika diinginkan */
+  margin-right: 20px; /* Jarak kanan jika diinginkan */
+}
+
+.video-container {
+  position: absolute; /* Video menutupi seluruh .isi */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Menjaga agar video tidak keluar dari container */
+  z-index: -1; /* Video berada di belakang konten .isi */
+}
+
+#background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Pastikan video menutupi seluruh container tanpa distorsi */
+}
+
+
+ul {
+  list-style-type: none; /* Menghilangkan bullet points */
+  padding: 0; /* Menghilangkan padding default */
+  margin: 0; /* Menghilangkan margin default */
+}
+
+li {
+  margin-bottom: 10px; /* Jarak antar item daftar */
+}
+
+/* Menyesuaikan ukuran teks untuk tampilan yang lebih kecil */
+h1 {
+  font-size: 7rem; /* Ukuran font besar untuk judul */
+  margin: 0;
+}
+
+p {
+  font-size: 2rem; /* Ukuran font untuk teks */
+  margin: 0;
+}
+
+/* Responsif: mengurangi ukuran font pada perangkat kecil */
+@media (max-width: 768px) {
+  h1 {
+      font-size: 2rem;
+  }
+  
+  p {
+      font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+      font-size: 1.5rem;
+  }
+  
+  p {
+      font-size: 0.9rem;
+  }
+}

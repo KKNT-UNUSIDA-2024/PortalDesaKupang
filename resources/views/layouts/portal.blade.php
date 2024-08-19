@@ -10,14 +10,13 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @stack('styles')
+    @stack('styles')    
 </head>
-<body class="font-sans antialiased bg-gray-100 dark:bg-gray-900">
+<body class="font-sans antialiased dark:bg-gray-900">
     <!-- Navbar -->
-    <nav class="bg-white dark:bg-gray-800 shadow-md">
+    {{-- <nav class="bg-white dark:bg-gray-800 shadow-md">
         <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
             <div class="relative flex items-center justify-between h-16">
                 <div class="flex-shrink-0">
@@ -40,9 +39,9 @@
                 <a href="{{ route('profile-desa.show') }}" class="text-gray-900 dark:text-white block px-3 py-2 rounded-md text-base font-medium">Profile Desa</a>
             </div>
         </div>
-    </nav>
-
-    <!-- Page Content -->
+    </nav> --}}
+    <x-nav-bar></x-nav-bar>
+<br>
     <main>
         @yield('content')
     </main>
