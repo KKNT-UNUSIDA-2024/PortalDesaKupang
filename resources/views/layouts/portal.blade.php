@@ -56,8 +56,8 @@
     </main>
 
     <!-- Footer (Optional) -->
-    <footer class="bg-white dark:bg-gray-800 text-center py-4 mt-6">
-        <p class="text-gray-600 dark:text-gray-400">&copy; {{ date('Y') }} Portal Desa. All rights reserved.</p>
+    <footer>
+        <p> {{ date('Y') }} Portal Desa. All rights reserved.</p>
     </footer>
 
     <!-- Scripts -->
