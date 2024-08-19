@@ -15,13 +15,13 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('admin.katalog.index')" :active="request()->routeIs('katalog.index')">
+                    <x-nav-link :href="route('admin.katalog.index')" :active="request()->routeIs('admin.katalog.index')">
                         {{ __('Katalog') }}
                     </x-nav-link>
                     <x-nav-link :href="route('admin.bumdes-wisata.index')" :active="request()->routeIs('admin.bumdes-wisata.index')">
                         {{ __('Manajemen Bumdes & Wisata') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('admin.katalog.index')" :active="request()->routeIs('profile.desa')">
+                    <x-nav-link :href="route('admin.profildesa.edit')" :active="request()->routeIs('admin.profildesa.edit')">
                         {{ __('Profile Desa') }}
                     </x-nav-link>
                 </div>
