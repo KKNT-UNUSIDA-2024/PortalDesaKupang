@@ -5,9 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KatalogController;
 use App\Http\Controllers\BumdesWisataController;
 use App\Http\Controllers\ProfilDesaController;
-use App\Http\Controllers\WebController;
 
-Route::get('/', [WebController::class, 'index'])->name('home');
+Route::get('/', function () {
+    return view('index');
+});
 
 Route::get('admin', function () {
     return view('admin.dashboard');
