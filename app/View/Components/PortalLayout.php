@@ -11,13 +11,8 @@ class PortalLayout extends Component
      * Get the view / contents that represents the component.
      */
 
-
-    public function render(View $view)
+    public function render(): View
     {
-        // Ambil data profil desa
-        $profileDesa = ProfilDesa::first();
-
-        // Bagikan data ke view
-        $view->with('layouts.portal', $profileDesa);
+        return view('layouts.portal');
     }
 }

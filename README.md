@@ -1,46 +1,67 @@
+
+
 # Portal Desa
 
 Portal Desa adalah aplikasi berbasis web untuk manajemen katalog desa, termasuk Bumdes dan profil desa, yang dibangun dengan Laravel.
 
-## Prerequisites
+## Prasyarat
 
 - [Herd](https://herd.laravel.com/windows) di Windows untuk menjalankan proyek Laravel.
 
-## Quick Installation
+## Instalasi Cepat
 
-### 0. Install
+### 0. Instal Herd
 
-Install Herd 
+1. **Unduh dan Instal Herd:**
+   - Unduh Herd dari situs resmi.
+   - Instal Herd di komputer Windows kamu.
 
-lalu buka Herd ke PHP 
+2. **Atur PHP:**
+   - Buka Herd dan pergi ke bagian **PHP**.
+   - Unduh **PHP 8.2** jika belum terpasang.
+   - Di dashboard Herd, atur versi global PHP ke **8.2**.
 
-download PHP 8.2
+3. **Buka Direktori Herd:**
+   - Buka File Explorer.
+   - Arahkan ke direktori Herd dengan mengetikkan ini di bilah alamat:
+     ```bash
+     %USERPROFILE%\Herd\
+     ```
 
-lalu ke dashboard, di global php version, set php ke 8.2
+4. **Kloning Repositori:**
+   - Di dalam direktori Herd, buka terminal (atau klik kanan dan pilih "Git Bash Here" jika Git sudah terinstal) dan jalankan:
+     ```bash
+     git clone https://github.com/KKNT-UNUSIDA-2024/PortalDesaKupang.git
+     cd PortalDesaKupang
+     ```
 
-lalu buka explorer
-```bash
-%USERPROFILE%\Herd\
-```
-lalu
-```bash
-git clone https://github.com/KKNT-UNUSIDA-2024/PortalDesaKupang.git
-cd PortalDesaKupang
-```
-lalu install dependencies
-```bash
-composer install
-php artisan key:generate
-npm install
-```
-jika sudah
-restart Herd(Exit and relaunch)
+5. **Instal Dependensi:**
+   - Di dalam direktori `PortalDesaKupang`, jalankan:
+     ```bash
+     composer install
+     php artisan key:generate
+     npm install
+     ```
 
-akses bisa di lihat di Menu Herd lalu Quick access lalu open sites
+6. **Restart Herd:**
+   - Tutup Herd sepenuhnya dan buka kembali untuk menerapkan perubahan.
 
-localhost/admin
-me@admin.com
-123456789
+7. **Mulai Server Pengembangan:**
+   - Di terminal, jalankan:
+     ```bash
+     npm run dev
+     ```
+   - Ini akan memastikan template Flowbite berjalan dengan benar.
+
+8. **Akses Aplikasi:**
+   - Buka Herd, pergi ke **Quick Access**, dan pilih **Open Sites**.
+   - Kunjungi panel admin dengan mengakses `localhost/admin` di browser kamu.
+   - Gunakan kredensial berikut untuk login:
+     - **Email:** me@admin.com
+     - **Kata Sandi:** 123456789
+
+---
+
 
 ## Routes
 

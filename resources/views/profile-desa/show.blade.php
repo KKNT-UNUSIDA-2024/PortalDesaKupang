@@ -1,6 +1,4 @@
-@extends('layouts.portal')
-
-@section('content')
+<x-portal-layout>
 <style>
     .isi {
         margin-top: 20vh; /* Margin atas 20% dari tinggi viewport */
@@ -110,4 +108,4 @@
         </div>
     </div>
 </div>
-@endsection
+</x-portal-layout>

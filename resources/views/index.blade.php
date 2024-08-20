@@ -1,8 +1,6 @@
 <!-- resources/views/index.blade.php -->
 
-@extends('layouts.portal')
-
-@section('content')
+<x-portal-layout>
 
 <style>
     /* CSS untuk mengatur tampilan elemen "isi" */
@@ -97,4 +95,4 @@
     </ul>
 </div>
 
-@endsection
+</x-portal-layout>
