@@ -166,7 +166,7 @@ font-style: normal;
         right: 0;
         left: 0;
         bottom: 0;
-        background-color: #111;
+        background-color: rgb(17 24 39 / var(--tw-bg-opacity));
         /*same background color of navbar*/
         background-position: center top;
     }
@@ -380,7 +380,7 @@ font-style: normal;
 
 .affix {
     padding: 0;
-    background-color: #111;
+    background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 
 
