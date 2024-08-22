@@ -13,6 +13,7 @@
         margin-bottom: 1rem; /* Jarak bawah judul */
         font-size: 2.25rem; /* 36px */
         line-height: 2.5rem; /* 40px */
+        margin-top:1.2rem;
     }
     .section-content {
         margin-top: 0.5rem;
@@ -30,7 +31,7 @@
         margin-top: 20vh;
     }
 </style>
-<div class="isi">
+<div class="isi dark:bg-gray-800">
     <div class="container mx-auto px-4">
         <!-- Logo and Address Section -->
         <div class="grid grid-cols-2 gap-4 mb-8 text-white margin-section">
