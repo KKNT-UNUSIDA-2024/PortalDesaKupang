@@ -1,127 +1,154 @@
-<x-portal-layout>
 
-<section class="">
-<div id="custom-controls-gallery" class="relative w-full" data-carousel="slide">
-    <!-- Carousel wrapper -->
-    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-         <!-- Item 1 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
-        </div>
-        <!-- Item 2 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-            <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
-        </div>
-        <!-- Item 3 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
-        </div>
-        <!-- Item 4 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
-        </div>
-        <!-- Item 5 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
-        </div>
-    </div>
-    <div class="flex justify-center items-center pt-4">
-        <button type="button" class="flex justify-center items-center me-4 h-full cursor-pointer group focus:outline-none" data-carousel-prev>
-            <span class="text-gray-400 hover:text-gray-900 dark:hover:text-white group-focus:text-gray-900 dark:group-focus:text-white">
-                <svg class="rtl:rotate-180 w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
-                </svg>
-                <span class="sr-only">Previous</span>
-            </span>
-        </button>
-        <button type="button" class="flex justify-center items-center h-full cursor-pointer group focus:outline-none" data-carousel-next>
-            <span class="text-gray-400 hover:text-gray-900 dark:hover:text-white group-focus:text-gray-900 dark:group-focus:text-white">
-                <svg class="rtl:rotate-180 w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                </svg>
-                <span class="sr-only">Next</span>
-            </span>
-        </button>
-    </div>
+<x-portal-layout :title="'Katalog'">
+    @section('title', 'Halaman Desa')
+        <!-- MODALS
+    ================================================== -->
+    <div class="modal fade" id="modal-video" tabindex="-1" role="dialog" aria-labelledby="modal-video-header" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-video modal-lg" role="document">
+          <div class="modal-content">
+
+            <!-- Header -->
+            <div class="modal-header">
+
+              <!-- Title -->
+              <h4 class="modal-title text-white" id="modal-video-header">
+                Video demonstration
+              </h4>
+
+              <!-- Close -->
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+
+            </div>
+            <div class="modal-body">
+
+              <!-- Video -->
+              <video src="assets/video/1.mp4" class="img-fluid" controls></video>
+
+            </div>
+          </div> <!-- / .modal-content -->
+        </div> <!-- / .modal-dialog -->
+      </div> <!-- / .modal -->
+    <x-nav-bar-light></x-nav-bar-light>
+
+
+
+<!-- NAV
+================================================== -->
+<div class="mt-navbar border-bottom">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-auto">
+                <nav class="nav nav-overflow py-2">
+                    <a class="nav-link font-weight-normal text-xs" href="#katalog">
+                        Katalog
+                    </a>
+
+                </nav>
+            </div>
+        </div> <!-- / .row -->
+    </div> <!-- / .container -->
 </div>
-</section>
-<br>
-<section>
-    <div>
-        <h1 class="text-5xl text-center font-thin text-gray-900 dark:text-white ">SELAMAT DATANG DI BUMDES DESA KUPANG</h1>
-        <br>
-        <h2 class="text-3xl text-center text-gray-500 dark:text-white">Tempat di mana keindahan alam dan semangat berkarya bertemu! Di kaki Bukit Kayu Putih yang memukau, Desa Kupang menawarkan pesona alam yang menenangkan sekaligus menjadi pusat inovasi lokal melalui Badan Usaha Milik Desa (BUMDes). BUMDes Desa Kupang mengelola berbagai unit usaha yang memberdayakan potensi lokal, termasuk pembuatan pupuk kompos organik, produksi tahu berkualitas, dan pembuatan paving yang memperkokoh infrastruktur desa. Setiap produk yang dihasilkan tidak hanya berkontribusi pada perekonomian desa, tetapi juga memperkuat kearifan lokal dan menjaga kelestarian lingkungan</h2>
-       <br>
-       <h2 class="text-3xl text-center text-gray-500 dark:text-white">Dengan berkunjung ke Desa Kupang, Anda tidak hanya dapat menikmati pemandangan indah Bukit Kayu Putih, tetapi juga melihat langsung bagaimana BUMDes kami berperan dalam memajukan desa. Setiap dukungan Anda berarti turut serta dalam upaya meningkatkan kesejahteraan masyarakat Desa Kupang dan melestarikan keindahan alam yang ada. Mari bersama-sama membangun desa yang lebih baik dan lestari!</h2>
-    </div>
-</section>
-<br>
-<section>
 
-<!-- Cards -->
-<div class="flex justify-center space-x-8 mt-20 ">
-            <!-- Card 1 -->
-            <div class="bg-white text-black p-6 rounded-lg shadow-lg max-w-xs">
-                
-                <img src="{{ asset('images/image1.jpg') }}" alt="Product Image" class="rounded-t-lg w-full">
-                <div class="mt-4">
-                    <h2 class="text-lg font-bold">Product 1</h2>
-                    <div class="flex items-center mt-2">
-                        <span class="text-yellow-500 text-sm">★★★★★</span>
-                        <span class="ml-2 text-gray-500 text-sm">(5.0)</span>
+
+      <!-- HERO
+      ================================================== -->
+<!-- HERO
+================================================== -->
+<section class="overflow-hidden">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 offset-xl-1 order-md-2 section pt-md-0 pb-0">
+
+                <!-- Button -->
+                <a href="#modal-video" class="btn btn-lg btn-circle btn-hero ml-4 bg-white shadow text-body d-none d-md-block" data-toggle="modal">
+                    <i class="fas fa-play"></i>
+                </a>
+
+                <!-- Image -->
+                    <div class="img-half">
+                        <img src="assets/img/80.jpg" alt="Gambar Hero" class="img-cover img-incline-left">
                     </div>
-                    <p class="text-lg font-semibold mt-4">$599</p>
-                    <button class="bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 hover:bg-blue-600">Add to cart</button>
-                </div>
+
             </div>
-             <!-- Card 2 -->
-             <div class="bg-white text-black p-6 rounded-lg shadow-lg max-w-xs">
-                <img src="{{ asset('images/image2.jpg') }}" alt="Product Image" class="rounded-t-lg w-full">
-                <div class="mt-4">
-                    <h2 class="text-lg font-bold">Product 2</h2>
-                    <div class="flex items-center mt-2">
-                        <span class="text-yellow-500 text-sm">★★★★★</span>
-                        <span class="ml-2 text-gray-500 text-sm">(5.0)</span>
-                    </div>
-                    <p class="text-lg font-semibold mt-4">$599</p>
-                    <button class="bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 hover:bg-blue-600">Add to cart</button>
-                </div>
+            <div class="col-12 col-md-6 col-xl-5 order-md-1 section">
+
+                <!-- Preheading -->
+                <p class="font-weight-medium text-xs text-uppercase text-primary" data-toggle="animation" data-animation="fadeUp" data-animation-order="0" data-animation-trigger="load">
+                    Selamat Datang di Katalog Bumdes
+                </p>
+
+                <!-- Heading -->
+                <h1 class="mb-4" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load">
+                    Temukan Terbaik dari Desa Kami
+                </h1>
+
+                <!-- Subheading -->
+                <p class="mb-5 text-muted" data-toggle="animation" data-animation="fadeUp" data-animation-order="2" data-animation-trigger="load">
+                    Jelajahi tempat Bumdes dan Wisata terbaik di desa kami. Dari bisnis lokal hingga destinasi wisata menarik, temukan semua informasi yang Anda butuhkan di sini.
+                </p>
+
+                <!-- Button -->
+                <a href="#katalog" class="btn btn-outline-primary" data-toggle="animation" data-animation="fadeUp" data-animation-order="3" data-animation-trigger="load">
+                    Lihat Katalog <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+
             </div>
-            <!-- Card 3 -->
-            <div class="bg-white text-black p-6 rounded-lg shadow-lg max-w-xs">
-                <img src="{{ asset('images/image2.jpg') }}" alt="Product Image" class="rounded-t-lg w-full">
-                <div class="mt-4">
-                    <h2 class="text-lg font-bold">Product 3</h2>
-                    <div class="flex items-center mt-2">
-                        <span class="text-yellow-500 text-sm">★★★★★</span>
-                        <span class="ml-2 text-gray-500 text-sm">(5.0)</span>
-                    </div>
-                    <p class="text-lg font-semibold mt-4">$599</p>
-                    <button class="bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 hover:bg-blue-600">Add to cart</button>
-                </div>
-            </div>
-            <!-- Card 4 -->
-            <div class="bg-white text-black p-6 rounded-lg shadow-lg max-w-xs">
-                <img src="{{ asset('images/image1.jpg') }}" alt="Product Image" class="rounded-t-lg w-full">
-                <div class="mt-4">
-                    <h2 class="text-lg font-bold">Product 4</h2>
-                    <div class="flex items-center mt-2">
-                        <span class="text-yellow-500 text-sm">★★★★★</span>
-                        <span class="ml-2 text-gray-500 text-sm">(5.0)</span>
-                    </div>
-                    <p class="text-lg font-semibold mt-4">$599</p>
-                    <button class="bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 hover:bg-blue-600">Add to cart</button>
-                </div>
-            </div>
-                      
+        </div> <!-- / .row -->
+    </div> <!-- / .container -->
 </section>
 
 
 
+      <section class="section" id="katalog">
+        <div class="container">
+            <div class="row">
+                @foreach ($katalogs as $item)
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <!-- Item -->
+                        <div class="position-relative">
 
+                            <!-- Card -->
+                            <a class="card border-0 mb-3" href="{{ route('katalog.show', $item->id) }}">
 
+                                <!-- Image -->
+                                @if ($item->image)
+                                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->nama_wisata }}" class="card-img">
+                                @endif
 
+                                <!-- Body -->
+                                <div class="card-body">
 
+                                    <div class="row align-items-center mb-3">
+                                        <div class="col">
+                                            <!-- Heading -->
+                                            <h4 class="card-title mb-0">
+                                                {{ $item->nama_wisata }}
+                                            </h4>
+                                        </div>
+                                    </div> <!-- / .row -->
 
+                                    <!-- Text -->
+                                    <p class="mb-0 text-sm text-muted">
+                                        {{ Str::limit($item->description, 100) }}
+                                    </p>
 
+                                </div>
+
+                            </a>
+
+                            <!-- Button -->
+                            <button class="btn btn-sm btn-circle btn-primary card-add" data-toggle="cart" data-action="add">
+                                <i class="fas fa-plus"></i>
+                            </button>
+
+                        </div>
+                    </div>
+                @endforeach
+            </div> <!-- / .row -->
+        </div> <!-- / .container -->
+    </section>
+    <x-footer></x-footer>
 </x-portal-layout>
+

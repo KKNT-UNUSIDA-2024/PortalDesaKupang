@@ -1,41 +1,64 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+@props(['title'])
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>{{ config('app.name', 'Dashboard Admin') }}</title>
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/ico/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/ico/favicon-16x16.png">
+    <link rel="manifest" href="assets/ico/site.webmanifest">
+    <link rel="mask-icon" href="assets/ico/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <title>{{ $title ?? 'Home' }} | Desa Kupang</title>
+    <link rel="icon" href="https://pemdeskupang.com/baru/desa/logo/1699285161_logo-mojokerto.png" type="image/png">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="assets/ico/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
 
-        <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @stack('styles')    
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-</head>
-<body class="font-sans antialiased dark">
-<x-nav-bar></x-nav-bar>
-<div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-    <!-- Navbar -->
-<br>
-    <main>
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="assets/libs/flickity/dist/flickity.min.css">
+    <link rel="stylesheet" href="assets/libs/flickity-fade/flickity-fade.css">
+    <link rel="stylesheet" href="assets/libs/fullpage.js/dist/fullpage.min.css">
+    <link rel="stylesheet" href="assets/libs/highlightjs/styles/codepen-embed.css">
+    <link rel="stylesheet" href="assets/libs/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="assets/libs/incline-icons/style.min.css">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="assets/css/theme.min.css">
+
+
+  </head>
+  <body>
+
+
+
+
     {{ $slot }}
-    </main>
 
-    <!-- Footer (Optional) -->
+ <!-- JAVASCRIPT
+    ================================================== -->
+    <!-- Global JS -->
+    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnKt8_N4-FKOnhI_pSaDL7g_g-XI1-R9E"></script>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    @stack('scripts')
-    <script>
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-    </script>
-</body>
-<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    <!-- Plugins JS -->
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/flickity/dist/flickity.pkgd.min.js"></script>
+    <script src="assets/libs/flickity-fade/flickity-fade.js"></script>
+    <script src="assets/libs/jquery-parallax.js/parallax.min.js"></script>
+    <script src="assets/libs/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="assets/libs/waypoints/lib/shortcuts/inview.min.js"></script>
+    <script src="assets/libs/fullpage.js/vendors/scrolloverflow.min.js"></script>
+    <script src="assets/libs/fullpage.js/dist/fullpage.min.js"></script>
+    <script src="assets/libs/highlightjs/highlight.pack.min.js"></script>
+
+    <!-- Theme JS -->
+    <script src="assets/js/theme.min.js"></script>
+
+  </body>
 </html>

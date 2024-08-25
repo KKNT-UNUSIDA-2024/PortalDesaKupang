@@ -1,98 +1,55 @@
 <!-- resources/views/index.blade.php -->
 
-<x-portal-layout>
+<x-portal-layout :title="'Portal'">
+    <x-nav-bar></x-nav-bar>
 
-<style>
-    /* CSS untuk mengatur tampilan elemen "isi" */
-    .isi {
-        position: relative; /* Konten tetap berada di atas video */
-        color: white; /* Warna teks putih agar terlihat jelas di atas video */
-        z-index: 1; /* Z-index untuk konten agar berada di atas video */
-        padding: 20px; /* Padding untuk jarak antara konten dan tepi */
-        margin-top: 20vh; /* Margin atas 20% dari tinggi viewport */
-        max-width: 800px; /* Maksimal lebar konten */
-        margin-left: 20px; /* Jarak kiri jika diinginkan */
-        margin-right: 20px; /* Jarak kanan jika diinginkan */
-    }
+    <!-- HERO
+        ================================================== -->
+        <section class="section section-top section-full">
 
-    /* CSS untuk mengatur video menjadi latar belakang */
-    .video-container {
-        position: fixed; /* Memastikan video menutupi seluruh layar */
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden; /* Memastikan video tidak keluar dari container */
-        z-index: -1; /* Video berada di belakang konten .isi */
-        pointer-events: none; /* Memastikan video tidak mengganggu interaksi pengguna dengan elemen lain */
-    }
+            <!-- Video -->
+            <div class="bg-video">
+              <video class="bg-video-media" autoplay playsinline muted>
+                <source src="{{ asset('video/0819.mp4') }}" type="video/mp4">
+                HTML video is not supported by your browser.
+              </video>
+            </div>
 
-    #background-video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Pastikan video menutupi seluruh container tanpa distorsi */
-    }
+            <!-- Overlay -->
+            <div class="bg-overlay"></div>
 
-    h1 {
-    font-size: 7rem; /* Ukuran font besar untuk judul */
-    margin: 0;
-    }
+            <!-- Triangles -->
+            <div class="bg-triangle bg-triangle-light bg-triangle-bottom bg-triangle-left"></div>
+            <div class="bg-triangle bg-triangle-light bg-triangle-bottom bg-triangle-right"></div>
 
-    p {
-        font-size: 2rem; /* Ukuran font untuk teks */
-        margin: 0;
-    }
+            <!-- Content -->
+            <div class="container">
+              <div class="row justify-content-center align-items-center">
+                <div class="col-md-8 col-lg-7">
 
-    /* animasi isi */
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px); /* Elemen mulai sedikit di bawah */
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0); /* Elemen bergerak ke posisi aslinya */
-    }
-}
+                  <!-- Preheading -->
 
-/* Animasi untuk kelas .satu */
-.satu {
-    opacity: 0; /* Mulai tidak terlihat */
-    animation: fadeInUp 2s ease forwards 0s; /* Fade-in tanpa delay */
-}
+                  <!-- Heading -->
+                  <h1 class="text-white text-center mb-4" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load">
+                    Selamat Datang Di Portal
+                  </h1>
 
-/* Animasi untuk kelas .dua */
-.dua {
-    opacity: 0; /* Mulai tidak terlihat */
-    animation: fadeInUp 2s ease forwards 0.5s; /* Fade-in setelah 2 detik */
-}
+                  <!-- Subheading -->
+                  <p class="lead text-white text-muted text-center mb-5" data-toggle="animation" data-animation="fadeUp" data-animation-order="2" data-animation-trigger="load">
+                    Pemdes Kupang adalah set halaman yang bertujuan untuk membantu perusahaan mempromosikan produk baru dan peluncuran bisnis.
+                  </p>
 
-/* Animasi untuk kelas .tiga */
-.tiga {
-    opacity: 0; /* Mulai tidak terlihat */
-    animation: fadeInUp 2s ease forwards 0.8s; /* Fade-in setelah 4 detik */
-}
+                  <!-- Button -->
+                  <p class="text-center mb-0" data-toggle="animation" data-animation="fadeUp" data-animation-order="3" data-animation-trigger="load">
+                    <a href="/" target="_blank" class="btn btn-outline-primary text-white">
+                      Lebih Lanjut
+                    </a>
+                  </p>
 
+                </div>
+              </div> <!-- / .row -->
+            </div> <!-- / .container -->
 
+          </section>
 
-</style>
-
-<div class="video-container">
-    <video autoplay muted loop id="background-video">
-        <source src="{{ asset('video/0819.mp4') }}" type="video/mp4">
-    </video>
-</div>
-
-<div class="isi">
-    <ul>
-        <li><p class="satu">Selamat Datang Di Portal</p></li>
-        <li><h1 class="dua">Pemdes Kupang</h1></li>
-        <br>
-        <br>
-        <li>
-            <p class="tiga">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et lacinia hendrerit, mi metus euismod arcu, in tempus elit risus eu ligula. Curabitur vel libero eu erat tincidunt posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Nullam dapibus dolor et ex vestibulum, non consequat odio egestas.</p>
-        </li>
-    </ul>
-</div>
-
-</x-portal-layout>
+    </x-portal-layout>

@@ -1,112 +1,154 @@
-<x-portal-layout>
-<style>
-    .isi {
-        margin-top: 20vh; /* Margin atas 20% dari tinggi viewport */
-        max-width: 95%; /* Maksimal lebar konten */
-        margin-left: auto; /* Jarak kiri otomatis agar center */
-        margin-right: auto; /* Jarak kanan otomatis agar center */
-    }
-    
-    .section-title {
-        font-weight: bold;
-        text-align: center; /* Center-align title */
-        margin-bottom: 1rem; /* Jarak bawah judul */
-        font-size: 2.25rem; /* 36px */
-        line-height: 2.5rem; /* 40px */
-        margin-top:1.2rem;
-    }
-    .section-content {
-        margin-top: 0.5rem;
-        font-size: 1.5rem; /* 24px */
-        line-height: 2rem; /* 32px */
-    }
-    .image {
-        max-width: 100%; /* Ukuran maksimal gambar */
-        height: auto;
-    }
-    .list-item {
-        margin-bottom: 0.5rem; /* Spacing between list items */
-    }
-    .margin-section {
-        margin-top: 20vh;
-    }
-</style>
-<div class="isi dark:bg-gray-800">
-    <div class="container mx-auto px-4">
-        <!-- Logo and Address Section -->
-        <div class="grid grid-cols-2 gap-4 mb-8 text-white margin-section">
-            <!-- Logo and Address -->
-            <div class="flex flex-col items-start space-y-2">
-                @if($profileDesa->logo_desa)
-                    <img src="{{ asset('storage/' . $profileDesa->logo_desa) }}" alt="Logo Desa" class="logo mb-2"> <!-- Fixed size logo -->
-                @endif
-                <p class="section-title self-center">Desa Kupang</p>
-                <p class="section-content self-center">{{ $profileDesa->alamat_desa }}</p>
+<x-portal-layout :title="'Profile'">
+    <x-nav-bar-light></x-nav-bar-light>
+        <!-- BREADCRUMB
+    ================================================== -->
+  <!-- BREADCRUMB ================================================== -->
+<nav class="breadcrumb">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col">
+                <!-- Heading -->
+                <h5 class="breadcrumb-heading">Profil Desa</h5>
             </div>
-
-            <!-- Vision and Mission -->
-            <div class="flex flex-col space-y-2">
-                <p class="section-title">VISI:</p>
-                <p class="section-content">{{ $profileDesa->visi_desa }}</p>
-                <p class="section-title">MISI:</p>
-                <ol class="section-content list-decimal list-inside space-y-2">
-                    @php
-                        // Assuming missions are separated by new lines or commas
-                        $missions = explode("\n", $profileDesa->misi_desa);
-                    @endphp
-                    @foreach($missions as $mission)
-                        <li class="list-item">{{ trim($mission) }}</li>
-                    @endforeach
-                </ol>
+            <div class="col-auto">
+                <!-- Breadcrumb -->
+                <span class="breadcrumb-item">
+                    <a href="{{ url('/') }}">Home</a>
+                </span>
+                <span class="breadcrumb-item active">Profil Desa</span>
             </div>
         </div>
+    </div>
+</nav>
 
-        <!-- Governance Structure Section -->
-         <div class="m-8">
-        <div class="grid grid-cols-1 gap-8 mb-8 text-white margin-section">
-            <p class="section-title">Struktur Pemerintahan:</p>
-            @if($profileDesa->struktur_pemerintahan)
-                <img src="{{ asset('storage/' . $profileDesa->struktur_pemerintahan) }}" alt="Struktur Pemerintahan" class="h-auto max-w-lg rounded-lg">
-            @endif
-            <p class="section-title">Struktur BPD:</p>
-            @if($profileDesa->struktur_bpd)
-                <img src="{{ asset('storage/' . $profileDesa->struktur_bpd) }}" alt="Struktur BPD" class="h-auto max-w-lg rounded-lg">
-            @endif
-        </div>
+<!-- HEADER ================================================== -->
+<!-- HEADER ================================================== -->
+<section class="section pb-0">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                <!-- Header -->
+                <div class="header" style="height: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <!-- Logo Desa -->
+                    @if($profileDesa->logo_desa)
+                        <img src="{{ asset('storage/' . $profileDesa->logo_desa) }}" alt="Logo Desa" style="max-width: 150px; margin-bottom: 10px;">
+                    @endif
 
-        <!-- History Section -->
-        <div class="grid grid-cols-2 gap-8 mb-8 text-white margin-section">
-            <!-- History Text -->
-            <div class="flex flex-col space-y-2">
-                <p class="section-title">Sejarah Desa:</p>
-                <p class="section-content">{{ $profileDesa->sejarah_desa }}</p>
-            </div>
+                    <!-- Nama Desa -->
+                    <h1 class="mb-2">{{ $profileDesa->nama_desa }}</h1>
 
-            <!-- History Image -->
-            <div class="flex flex-col space-y-2">
-                @if($profileDesa->gambar_sejarah_desa)
-                    <img src="{{ asset('storage/' . $profileDesa->gambar_sejarah_desa) }}" alt="Gambar Sejarah Desa" class="h-auto max-w-lg rounded-lg">
-                @endif
+                    <!-- Alamat Desa -->
+                    <p class="text-muted">{{ $profileDesa->alamat_desa }}</p>
+                </div>
             </div>
         </div>
+    </div>
+</section>
 
-        <!-- Location Map Section -->
-        <div class="grid grid-cols-2 gap-8 text-white margin-section">
-            <!-- Location Info -->
-            <div class="flex flex-col space-y-2">
-                <p class="section-title">Peta Lokasi Desa:</p>
-                @if($profileDesa->peta_lokasi_desa)
-                    <p class="section-content">{{ $profileDesa->peta_lokasi_desa }}</p>
-                @endif
+
+<!-- ABOUT ================================================== -->
+<section class="section pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <!-- Title -->
+                <h6 class="title">Tentang Desa</h6>
             </div>
+            <div class="col-md-5">
+                <!-- Heading -->
+                <h3 class="mb-4">Profil <span class="text-primary">Visi</span></h3>
 
-            <!-- Location Map Image -->
-            <div class="flex flex-col space-y-2">
-                @if($profileDesa->gambar_peta_lokasi_desa)
-                    <img src="{{ asset('storage/' . $profileDesa->gambar_peta_lokasi_desa) }}" alt="Gambar Peta Lokasi Desa" class="image">
+                <!-- Content -->
+                <blockquote class="blockquote">
+                    <p class="mb-0">{{ $profileDesa->visi_desa }}</p>
+                </blockquote>
+            </div>
+            <div class="col-md-5">
+                <h3 class="mb-4">Profil <span class="text-primary">Misi</span></h3>
+                <!-- Content -->
+                <blockquote class="blockquote">
+                <p class="text-muted">                    @php
+                    // Assuming missions are separated by new lines or commas
+                    $missions = explode("\n", $profileDesa->misi_desa);
+                @endphp
+                @foreach($missions as $mission)
+                    <li class="list-item">{{ trim($mission) }}</li>
+                @endforeach</p>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- GOVERNANCE STRUCTURE ================================================== -->
+<section class="section pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <!-- Title -->
+                <h6 class="title">Struktur Pemerintahan</h6>
+            </div>
+            <div class="col-md-10">
+                <p>Struktur Pemerintahan:</p>
+                @if($profileDesa->struktur_pemerintahan)
+                    <img src="{{ asset('storage/' . $profileDesa->struktur_pemerintahan) }}" alt="Struktur Pemerintahan" class="img-fluid">
+                @endif
+                <p>Struktur BPD:</p>
+                @if($profileDesa->struktur_bpd)
+                    <img src="{{ asset('storage/' . $profileDesa->struktur_bpd) }}" alt="Struktur BPD" class="img-fluid">
                 @endif
             </div>
         </div>
     </div>
-</div>
+</section>
+
+<!-- HISTORY ================================================== -->
+<section class="section pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <!-- Title -->
+                <h6 class="title">Sejarah Desa</h6>
+            </div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>{{ $profileDesa->sejarah_desa }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        @if($profileDesa->gambar_sejarah_desa)
+                            <img src="{{ asset('storage/' . $profileDesa->gambar_sejarah_desa) }}" alt="Gambar Sejarah Desa" class="img-fluid">
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LOCATION MAP ================================================== -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <!-- Title -->
+                <h6 class="title">Peta Lokasi</h6>
+            </div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-6">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget ultrices eros. Vestibulum placerat libero eu velit laoreet, non consectetur lectus tristique. Suspendisse viverra, magna porttitor eleifend malesuada, metus ex facilisis ex, sodales congue odio tellus at ante. Nullam in mollis nisl, nec elementum turpis. Maecenas sed nunc nisi. In hac habitasse platea dictumst. Fusce molestie in urna non vehicula. Maecenas semper eu nisl id consequat. Donec finibus, tellus et auctor tempus, eros massa ultrices nibh, et commodo ipsum tellus at nibh.
+                    </div>
+                    <div class="col-md-6">
+                        @if($profileDesa->peta_lokasi_desa)
+                            <img src="{{ asset('storage/' . $profileDesa->peta_lokasi_desa) }}" alt="Gambar Peta Lokasi Desa" class="img-fluid">
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 </x-portal-layout>

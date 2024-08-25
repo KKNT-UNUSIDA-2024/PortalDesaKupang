@@ -1,19 +1,47 @@
-<nav class="nav">
-    <div class="container">
-        <div class="logo">
-          <img src="https://pemdeskupang.com/baru/desa/logo/1699285161_logo-mojokerto.png" alt="Logo Desa KUPANG">
-        </div>
-        <div id="mainListDiv" class="main_list">
-            <ul class="navlinks">
-                <li><a href="{{ route('profile-desa.show') }}">Profil</a></li>
-                <li><a href="{{ route('katalog.index') }}">Bumdes</a></li>
-                <li><a href="{{ route('bumdes.public.index') }}">Wisata</a></li>
-                <li><a href="{{ route('profile.public.index') }}">Administrasi</a></li>
-                <li><a href="{{ route('profile.public.index') }}">Peta Interaktif</a></li>
+<!-- NAVBAR
+    ================================================= -->
+    <nav class="navbar navbar-expand-xl navbar-dark  navbar-togglable  fixed-top">
+        <div class="container">
+
+          <!-- Brand -->
+          <a class="navbar-brand" href="/">
+            <img src="https://pemdeskupang.com/baru/desa/logo/1699285161_logo-mojokerto.png" alt="Logo Desa KUPANG" style="max-height: 25px;">
+          </a>
+          Desa Kupang
+
+          <!-- Toggler -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Collapse -->
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+
+            <!-- Social -->
+            <ul class="navbar-nav mr-auto">
+              <!-- ... existing social links ... -->
             </ul>
-        </div>
-    </div>
- </nav>
+
+            <!-- Links -->
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('profile-desa.show') }}">Profil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('katalog.index') }}">Bumdes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('profile.public.index') }}">Administrasi</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('profile.public.index') }}">Peta Interaktif</a>
+              </li>
+            </ul>
+
+          </div> <!-- / .navbar-collapse -->
+
+        </div> <!-- / .container -->
+      </nav>
 
 <!-- Jquery needed -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
