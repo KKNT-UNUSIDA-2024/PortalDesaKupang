@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Tambah Bumdes dan Wisata') }}
+            {{ __('Create Bumdes dan Wisata') }}
         </h2>
     </x-slot>
 
@@ -9,38 +9,113 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <form action="{{ route('admin.bumdes-wisata.store') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="mb-4">
-                            <label for="nama_bumdes_wisata" class="block text-sm font-medium text-gray-700">Nama Bumdes dan Wisata</label>
-                            <input type="text" name="nama_bumdes_wisata" id="nama_bumdes_wisata" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
-                        </div>
-                        <div class="mb-4">
-                            <label for="kategori" class="block text-sm font-medium text-gray-700">Kategori</label>
-                            <input type="text" name="kategori" id="kategori" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
-                        </div>
-                        <div class="mb-4">
-                            <label for="description" class="block text-sm font-medium text-gray-700">Deskripsi</label>
-                            <textarea name="description" id="description" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
-                        </div>
-                        <div class="mb-4">
-                            <label for="image" class="block text-sm font-medium text-gray-700">Image</label>
-                            <input type="file" name="image" id="image" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        </div>
-                        <div class="mb-4">
-                            <label for="tanggal_awal_peminjaman" class="block text-sm font-medium text-gray-700">Tanggal Awal Peminjaman</label>
-                            <input type="date" name="tanggal_awal_peminjaman" id="tanggal_awal_peminjaman" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        </div>
-                        <div class="mb-4">
-                            <label for="jatuh_tempo_peminjaman" class="block text-sm font-medium text-gray-700">Jatuh Tempo Peminjaman</label>
-                            <input type="date" name="jatuh_tempo_peminjaman" id="jatuh_tempo_peminjaman" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        </div>
-                        <button type="submit" class="px-4 py-2 bg-indigo-600 text-white font-semibold rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                            {{ __('Simpan') }}
-                        </button>
-                    </form>
+                    <div class="container mx-auto px-4 py-6">
+                        <h1 class="text-2xl font-bold mb-4">Create Bumdes & Wisata</h1>
+                        <form action="{{ route('admin.bumdes-wisata.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="mb-4">
+                                    <label for="nama_bumdes_wisata" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nama Bumdes & Wisata</label>
+                                    <input type="text" id="nama_bumdes_wisata" name="nama_bumdes_wisata" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" required>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="kategori" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Kategori</label>
+                                    <select id="kategori" name="kategori" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200">
+                                        <option value="" disabled>Pilih kategori</option>
+                                        @foreach($kategoris as $kategori)
+                                            <option value="{{ $kategori->kategori }}">
+                                                {{ $kategori->kategori }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    <input type="text" id="kategori_baru" name="kategori_baru" placeholder="Masukkan kategori baru" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" oninput="updateSelect()">
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="description" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Deskripsi</label>
+                                    <textarea id="description" name="description" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"></textarea>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="image" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Gambar</label>
+                                    <input type="file" id="image" name="image" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200">
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="tanggal_awal_peminjaman" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Tanggal Awal Peminjaman</label>
+                                    <input type="date" id="tanggal_awal_peminjaman" name="tanggal_awal_peminjaman" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" required>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="jatuh_tempo_peminjaman" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Jatuh Tempo Peminjaman</label>
+                                    <input type="date" id="jatuh_tempo_peminjaman" name="jatuh_tempo_peminjaman" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200">
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="biaya_penyewaan" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Biaya Penyewaan</label>
+                                    <div class="relative">
+                                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500 dark:text-gray-400">Rp</span>
+                                        <input type="text" id="biaya_penyewaan" name="biaya_penyewaan" class="mt-1 block w-full pl-8 border border-gray-300 rounded-md shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" required oninput="formatRupiah(this)">
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="nama_penyewa" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nama Penyewa</label>
+                                    <input type="text" id="nama_penyewa" name="nama_penyewa" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-md">Create</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        function updateSelect() {
+            const select = document.getElementById('kategori');
+            const input = document.getElementById('kategori_baru').value;
+
+            // Cek jika input tidak kosong
+            if (input) {
+                // Tambahkan kategori baru ke select
+                let optionExists = false;
+                for (let i = 0; i < select.options.length; i++) {
+                    if (select.options[i].value === input) {
+                        optionExists = true;
+                        break;
+                    }
+                }
+                if (!optionExists) {
+                    const newOption = document.createElement('option');
+                    newOption.value = input;
+                    newOption.text = input;
+                    select.add(newOption);
+                    select.value = input; // Pilih kategori baru
+                }
+            }
+        }
+    </script>
+    <script>
+        function formatRupiah(input) {
+            // Menghapus semua karakter yang bukan angka
+            let value = input.value.replace(/[^0-9]/g, '');
+
+            // Format angka ke dalam format rupiah
+            const formattedValue = new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(value);
+
+            // Menghapus prefix "Rp" untuk menyimpan angka asli
+            input.value = formattedValue;
+        }
+    </script>
 </x-app-layout>

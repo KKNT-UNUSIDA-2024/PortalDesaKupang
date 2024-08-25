@@ -45,6 +45,12 @@ Route::prefix('admin')->group(function () {
     ]);
 });
 
+// Rute untuk mengunduh PDF
+Route::get('/bumdes-wisata/download/pdf', [BumdesWisataController::class, 'downloadPDF'])->name('admin.bumdes-wisata.download.pdf');
+
+// Rute untuk mengunduh Excel
+Route::get('/bumdes-wisata/download/excel', [BumdesWisataController::class, 'downloadExcel'])->name('admin.bumdes-wisata.download.excel');
+
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('profildesa/edit', [ProfildesaController::class, 'edit'])->name('admin.profildesa.edit');
     Route::patch('profildesa/update', [ProfildesaController::class, 'update'])->name('admin.profildesa.update');
