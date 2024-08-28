@@ -1,44 +1,112 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="{{ asset('assets/css/theme.min.css') }}">
-    <title>{{ $dusun->nama }}</title>
-</head>
-<body>
+<x-portal-layout :title="'Profile'">
+    <x-nav-bar-light></x-nav-bar-light>
+<main class="fp-wrapper">
+<section class="section section-top section-full">
 
-    <nav class="navbar navbar-expand-xl navbar-dark navbar-togglable fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">Incline</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="{{ route('dusun.visitors') }}">Dusun</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-            </div>
+  <!-- Cover -->
+  <div class="bg-cover" style="background-image: url('{{ asset(json_decode($dusun->gambar)[0] ?? 'default.jpg') }}')">
+  </div>
+
+  <!-- Overlay -->
+  <div class="bg-overlay"></div>
+
+  <!-- Triangles -->
+  <div class="bg-triangle bg-triangle-light bg-triangle-left bg-triangle-bottom"></div>
+  <div class="bg-triangle bg-triangle-light bg-triangle-right bg-triangle-bottom"></div>
+
+  <!-- Content -->
+  <div class="container">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-12 col-md-8">
+
+        <!-- Heading -->
+        <h1 class="text-center text-white mb-4" data-toggle="animation" data-animation="fadeUp" data-animation-order="1" data-animation-trigger="load">
+          {{ $dusun->nama }}
+        </h1>
+
+        <!-- Subheading -->
+        <p class="text-center text-white text-muted mb-5" data-toggle="animation" data-animation="fadeUp" data-animation-order="2" data-animation-trigger="load">
+          Dusun ini memiliki {{ $dusun->jumlah_rt }} RT dan {{ $dusun->jumlah_rw }} RW.
+        </p>
+       
+        <p class="text-center text-white text-muted mb-5" data-toggle="animation" data-animation="fadeUp" data-animation-order="2" data-animation-trigger="load">{{ $dusun->deskripsi }}</p>
+
+      </div>
+    </div> <!-- / .row -->
+  </div> <!-- / .container -->
+
+</section>
+
+<!-- ABOUT
+================================================== -->
+<section class="section pb-0">
+
+  <!-- Content -->
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 col-lg-5 offset-lg-1">
+        
+        <!-- Image -->
+        <div class="img-effect img-effect-solid mb-5 mb-md-0">
+          <img src="{{ asset(json_decode($dusun->gambar)[0] ?? 'default.jpg') }}" class="img-fluid" alt="{{ $dusun->nama }}">
         </div>
-    </nav>
 
-    <div class="container mt-5">
-        <h1 class="mb-4">{{ $dusun->nama }}</h1>
-        <img src="{{ asset(json_decode($dusun->gambar)[0] ?? 'default.jpg') }}" class="img-fluid mb-4" alt="{{ $dusun->nama }}">
-        <p><strong>Jumlah RT:</strong> {{ $dusun->jumlah_rt }}</p>
-        <p><strong>Jumlah RW:</strong> {{ $dusun->jumlah_rw }}</p>
-        <a href="{{ route('dusun.visitors') }}" class="btn btn-secondary">Kembali</a>
-    </div>
+      </div>
+      <div class="col-md-6 col-lg-4 offset-lg-1">
 
-    <footer class="section bg-dark">
-        <div class="container">
-            <p class="text-white text-center mb-0">&copy; {{ date('Y') }} Incline. All rights reserved.</p>
+        <!-- Heading -->
+        <h2 class="mb-4">
+          Detail Dusun
+        </h2>
+
+        <!-- Content -->
+        <p class="text-muted mb-0">
+          <strong>Jumlah RT:</strong> {{ $dusun->jumlah_rt }}<br>
+          <strong>Jumlah RW:</strong> {{ $dusun->jumlah_rw }}
+        </p>
+        
+        <!-- Button -->
+        <a href="{{ route('dusun.visitors') }}" class="btn btn-outline-primary mt-4">
+          Kembali
+        </a>
+        
+      </div>
+    </div> <!-- / .row -->
+  </div> <!-- / .container -->
+
+</section>
+
+<!-- MAP
+================================================== -->
+<section class="section">
+
+  <!-- Content -->
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+
+        <!-- Heading -->
+        <h2 class="text-center mb-4">
+          Lokasi Dusun
+        </h2>
+
+      </div>
+    </div> <!-- / .row -->
+    <div class="row">
+      <div class="col-12">
+
+        <!-- Map -->
+        <div class="map">
+          <div class="map-container" data-markers="[[34.0872254,-118.4046315]]" data-zoom="8"></div>
         </div>
-    </footer>
+        
+      </div>
+    </div> <!-- / .row -->
+  </div> <!-- / .container -->
 
-    <script src="{{ asset('assets/libs/jquery/dist/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-</body>
-</html>
+</section>
+
+</main>
+
+
+</x-portal-layout>

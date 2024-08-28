@@ -1,5 +1,5 @@
 <x-portal-layout :title="'Dusun'">
-    <x-nav-bar></x-nav-bar>
+    <x-nav-bar-light></x-nav-bar-light>
 
     <main class="fp-wrapper">
         <section class="fp-section">

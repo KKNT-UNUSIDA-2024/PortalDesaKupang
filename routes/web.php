@@ -85,4 +85,6 @@ Route::get('/profile-desa', [ProfilDesaController::class, 'show'])->name('profil
 
 Route::get('/dusun', [DusunController::class, 'showForVisitors'])->name('dusun.visitors');
 
-Route::get('/dusun/{slug}', [DusunController::class, 'show'])->name('dusun.show');
+Route::get('/{slug}', [DusunController::class, 'show'])->name('dusun.show');
+
+
