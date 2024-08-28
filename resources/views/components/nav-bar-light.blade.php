@@ -7,6 +7,7 @@
           <a class="navbar-brand" href="/">
             <img src="https://pemdeskupang.com/baru/desa/logo/1699285161_logo-mojokerto.png" alt="Logo Desa KUPANG" style="max-height: 25px;">
           </a>
+          Desa Kupang
 
           <!-- Toggler -->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,12 +24,38 @@
 
             <!-- Links -->
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('profile-desa.show') }}">Profil</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('katalog.index') }}">Bumdes</a>
-              </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarLandings" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Informasi
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarLandings">
+                <a class="dropdown-item " href="{{ route('profile-desa.show') }}">
+                  Profil Desa
+                </a>
+                <a class="dropdown-item" href="">
+                  Berita Desa
+                </a>
+                <a class="dropdown-item " href="">
+                  Data Dusun
+                </a>
+              </div>
+            </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarLandings" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Unit Usaha
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarLandings">
+                <a class="dropdown-item " href="">
+                  UMKM
+                </a>
+                <a class="dropdown-item" href="">
+                  Bukit Kayoe Putih
+                </a>
+                <a class="dropdown-item " href="{{ route('katalog.index') }}">
+                  Bumdes
+                </a>
+              </div>
+            </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('profile.public.index') }}">Administrasi</a>
               </li>

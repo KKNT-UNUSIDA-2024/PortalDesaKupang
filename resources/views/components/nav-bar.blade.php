@@ -22,14 +22,56 @@
               <!-- ... existing social links ... -->
             </ul>
 
-            <!-- Links -->
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('profile-desa.show') }}">Profil</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('katalog.index') }}">Bumdes</a>
-              </li>
+                        <!-- Links -->
+                        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarLandings" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Informasi
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarLandings">
+                <a class="dropdown-item " href="{{ route('profile-desa.show') }}">
+                  Profil Desa
+                </a>
+                <a class="dropdown-item" href="">
+                  Berita Desa X
+                </a>
+                <a class="dropdown-item " href="{{ route('dusun.visitors') }}">
+                  Data Dusun
+                </a>
+                <a class="dropdown-item " href="{{ route('dashboard') }}">
+                 Masuk Sebagai<br>
+                   Perangkat Desa 
+                </a>
+              </div>
+            </li>
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarLandings" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dusun
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarLandings">
+                <a class="dropdown-item " href="{{ route('profile-desa.show') }}">
+                  Dusun kaliurang
+                </a>
+              </div>
+            </li>
+
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarLandings" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Unit Usaha
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarLandings">
+                <a class="dropdown-item " href="">
+                  UMKM
+                </a>
+                <a class="dropdown-item" href="">
+                  Bukit Kayoe Putih
+                </a>
+                <a class="dropdown-item " href="{{ route('katalog.index') }}">
+                  Bumdes
+                </a>
+              </div>
+            </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('profile.public.index') }}">Administrasi</a>
               </li>
@@ -42,7 +84,6 @@
 
         </div> <!-- / .container -->
       </nav>
-
 <!-- Jquery needed -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script >

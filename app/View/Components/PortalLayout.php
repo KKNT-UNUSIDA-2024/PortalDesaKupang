@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Dusun; 
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
@@ -13,6 +14,7 @@ class PortalLayout extends Component
 
     public function render(): View
     {
-        return view('layouts.portal');
+        $dusuns = Dusun::all();
+        return view('layouts.portal', compact('dusuns'));
     }
 }

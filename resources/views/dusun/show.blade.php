@@ -13,6 +13,7 @@
   <!-- Triangles -->
   <div class="bg-triangle bg-triangle-light bg-triangle-left bg-triangle-bottom"></div>
   <div class="bg-triangle bg-triangle-light bg-triangle-right bg-triangle-bottom"></div>
+  composer require binshops/laravel-blog
 
   <!-- Content -->
   <div class="container">
