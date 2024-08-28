@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KatalogController;
 use App\Http\Controllers\BumdesWisataController;
 use App\Http\Controllers\ProfilDesaController;
+use App\Http\Controllers\DusunController;
 
 Route::get('/', function () {
     return view('index');
@@ -56,6 +57,16 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::patch('profildesa/update', [ProfildesaController::class, 'update'])->name('admin.profildesa.update');
 });
 
+// Route untuk admin
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+    Route::get('dusun', [DusunController::class, 'index'])->name('admin.dusun.index'); // Menampilkan daftar dusun
+    Route::get('dusun/create', [DusunController::class, 'create'])->name('admin.dusun.create'); // Form untuk menambah dusun
+    Route::post('dusun', [DusunController::class, 'store'])->name('admin.dusun.store'); // Menyimpan dusun baru
+    Route::get('dusun/{id}/edit', [DusunController::class, 'edit'])->name('admin.dusun.edit'); // Form untuk mengedit dusun
+    Route::put('dusun/{id}', [DusunController::class, 'update'])->name('admin.dusun.update'); // Mengupdate dusun
+    Route::delete('dusun/{id}', [DusunController::class, 'destroy'])->name('admin.dusun.destroy'); // Menghapus dusun
+});
+
 
 require __DIR__.'/auth.php';
 
@@ -71,3 +82,7 @@ Route::get('/bumdes', [KatalogController::class, 'publicIndex'])->name('bumdes.p
 Route::get('/profile', [KatalogController::class, 'publicIndex'])->name('profile.public.index');
 
 Route::get('/profile-desa', [ProfilDesaController::class, 'show'])->name('profile-desa.show');
+
+Route::get('/dusun', [DusunController::class, 'showForVisitors'])->name('dusun.visitors');
+
+Route::get('/dusun/{slug}', [DusunController::class, 'show'])->name('dusun.show');
