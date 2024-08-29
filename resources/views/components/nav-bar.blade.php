@@ -5,9 +5,9 @@
 
           <!-- Brand -->
           <a class="navbar-brand" href="/">
-            <img src="https://pemdeskupang.com/baru/desa/logo/1699285161_logo-mojokerto.png" alt="Logo Desa KUPANG" style="max-height: 25px;">
+            <img src="https://pemdeskupang.com/baru/desa/logo/1699285161_logo-mojokerto.png" alt="Logo Desa KUPANG" style="max-height: 25px;">Desa Kupang
           </a>
-          Desa Kupang
+
 
           <!-- Toggler -->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,11 +40,11 @@
                 </a>
                 <a class="dropdown-item " href="{{ route('dashboard') }}">
                  Masuk Sebagai<br>
-                   Perangkat Desa 
+                   Perangkat Desa
                 </a>
               </div>
             </li>
-            
+
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarLandings" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Dusun
@@ -56,22 +56,22 @@
               </div>
             </li>
 
-              <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarLandings" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Unit Usaha
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarLandings">
-                <a class="dropdown-item " href="">
-                  UMKM
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarLandings" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Unit Usaha
                 </a>
-                <a class="dropdown-item" href="">
-                  Bukit Kayoe Putih
-                </a>
-                <a class="dropdown-item " href="{{ route('katalog.index') }}">
-                  Bumdes
-                </a>
-              </div>
-            </li>
+                <div class="dropdown-menu" aria-labelledby="navbarLandings">
+                  <a class="dropdown-item " href="{{ route('katalog.index') }}#umkm">
+                    UMKM
+                  </a>
+                  <a class="dropdown-item" href="{{ route('katalog.index') }}#wisata">
+                    Wisata
+                  </a>
+                  <a class="dropdown-item " href="{{ route('katalog.index') }}#katalog">
+                    Bumdes
+                  </a>
+                </div>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('profile.public.index') }}">Administrasi</a>
               </li>

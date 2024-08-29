@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Katalog;
+use App\Models\BumdesWisata;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -27,17 +28,17 @@ class KatalogController extends Controller
             'description' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-    
+
         $katalog = new Katalog();
         $katalog->nama_wisata = $validated['nama_wisata'];
         $katalog->description = $validated['description'] ?? null;
-    
+
         if ($request->hasFile('image')) {
             $katalog->image = $request->file('image')->store('katalog_images', 'public');
         }
-    
+
         $katalog->save();
-    
+
         return redirect()->route('admin.katalog.index')->with('success', 'Item created successfully.');
     }
 
@@ -58,10 +59,10 @@ class KatalogController extends Controller
             'description' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-    
+
         $katalog->nama_wisata = $validated['nama_wisata'];
         $katalog->description = $validated['description'] ?? null;
-    
+
         if ($request->hasFile('image')) {
             // Hapus gambar lama jika ada
             if ($katalog->image) {
@@ -69,12 +70,12 @@ class KatalogController extends Controller
             }
             $katalog->image = $request->file('image')->store('katalog_images', 'public');
         }
-    
+
         $katalog->save();
-    
+
         return redirect()->route('admin.katalog.index')->with('success', 'Item updated successfully.');
     }
-    
+
 
     public function destroy(Katalog $katalog)
     {
@@ -85,8 +86,10 @@ class KatalogController extends Controller
     public function publicIndex()
     {
         $katalogs = Katalog::all(); // Atau sesuaikan dengan query yang Anda inginkan
-        return view('katalog.index', compact('katalogs'));
+        $bumdesWisata = BumdesWisata::all();
+        return view('katalog.index', compact('katalogs','bumdesWisata'));
     }
+
 
     public function publicShow(Katalog $katalog)
     {
