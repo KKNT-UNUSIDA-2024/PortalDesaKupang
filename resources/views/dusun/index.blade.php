@@ -5,30 +5,71 @@
         <section class="fp-section">
             <div class="section section-top">
                 <div class="container">
-                    <h1 class="text-center">Daftar Dusun</h1>
-                    <div class="row">
-                        @foreach($dusuns as $dusun)
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $dusun->nama }}</h5>
-                                        <p class="card-text">Jumlah RT: {{ $dusun->jumlah_rt }}</p>
-                                        <p class="card-text">Jumlah RW: {{ $dusun->jumlah_rw }}</p>
-                                        <p class="card-text">Deskripsi: {{ $dusun->deskripsi }}</p>
-                                        <div>
-                                            @if($dusun->gambar)
-                                                @foreach(json_decode($dusun->gambar) as $image)
-                                                    <img src="{{ asset('storage/' . $image) }}" alt="Gambar Dusun" style="width: 100px; height: auto;">
-                                                @endforeach
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
+                    <h1 class="text-center mb-5">Daftar Dusun</h1>
+
+                    @foreach($dusuns as $index => $dusun)
+                        <div class="row align-items-center {{ $index % 2 == 0 ? '' : 'flex-row-reverse' }} mb-5">
+                            <div class="col-md-6 {{ $index % 2 == 0 ? 'pr-md-5' : 'pl-md-5' }}">
+                                @if($dusun->gambar)
+                                    @php
+                                        $images = json_decode($dusun->gambar);
+                                        $firstImage = $images[0] ?? null;
+                                    @endphp
+                                    @if($firstImage)
+                                        <img src="{{ asset('storage/' . $firstImage) }}" class="img-fluid rounded shadow" alt="Gambar {{ $dusun->nama }}">
+                                    @endif
+                                @endif
                             </div>
-                        @endforeach
-                    </div>
+                            <div class="col-md-6 {{ $index % 2 == 0 ? 'pl-md-5' : 'pr-md-5' }}">
+                                <h2 class="text-success mb-3">{{ $dusun->nama }}</h2>
+                                <p class="font-weight-bold text-dark mb-3">
+                                    Jumlah RT: {{ $dusun->jumlah_rt }}, Jumlah RW: {{ $dusun->jumlah_rw }}
+                                </p>
+                                <p class="text-muted mb-4">
+                                    {{ $dusun->deskripsi }}
+                                </p>
+                                <a href="{{ route('dusun.show', $dusun->slug) }}" class="btn btn-outline-primary">Selengkapnya</a>
+                            </div>
+                        </div>
+                        @if(!$loop->last)
+                            <hr class="my-5">
+                        @endif
+                    @endforeach
+
                 </div>
             </div>
         </section>
     </main>
+
+    <style>
+    .fp-section {
+        padding: 4rem 0;
+    }
+    
+    .row {
+        margin-bottom: 4rem;
+    }
+    
+    .img-fluid {
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .img-fluid:hover {
+        transform: scale(1.05);
+    }
+    
+    @media (max-width: 767px) {
+        .row {
+            flex-direction: column-reverse !important;
+        }
+        
+        .col-md-6 {
+            margin-bottom: 2rem;
+        }
+    }
+</style>
+
+    <x-footer>
+        <!-- Footer content -->
+    </x-footer>
 </x-portal-layout>
