@@ -10,7 +10,7 @@
                 <div class="col">
                     <!-- Heading -->
                     <h5 class="breadcrumb-heading">
-                        Blog post
+                        Berita Desa
                     </h5>
                 </div>
                 <div class="col-auto">
@@ -19,7 +19,7 @@
                         <a href="{{ url('/') }}">Home</a>
                     </span>
                     <span class="breadcrumb-item active">
-                        Blog post
+                        Berita
                     </span>
                 </div>
             </div> <!-- / .row -->
@@ -34,13 +34,11 @@
                     <!-- Meta -->
                     <div class="row align-items-center justify-content-center no-gutters mb-4">
                         <div class="col-auto">
-                            <div class="avatar mr-3">
-                                <img src="{{ asset('assets/img/17.jpg') }}" alt="..." class="img-cover rounded-circle">
-                            </div>
+
                         </div>
                         <div class="col-auto">
                             <p class="mb-0 text-xs text-muted">
-                                by <strong class="text-body">{{ $post->author_name }}</strong> {{ $post->created_at->diffForHumans() }}
+                                Di Unggah Oleh Perangkat Desa Kupang by <strong class="text-body">{{ $post->author_name }}</strong> {{ $post->created_at->diffForHumans() }}
                             </p>
                         </div>
                     </div> <!-- / .row -->

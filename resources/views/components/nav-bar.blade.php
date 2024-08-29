@@ -44,18 +44,32 @@
                 </a>
               </div>
             </li>
-
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarLandings" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dusun
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarLandings">
-                <a class="dropdown-item " href="{{ route('profile-desa.show') }}">
-                  Dusun kaliurang
+                <a class="nav-link dropdown-toggle" href="#" id="navbarLandings" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Dusun
                 </a>
-              </div>
-            </li>
+                <div class="dropdown-menu" aria-labelledby="navbarLandings">
+                    <a class="dropdown-item " href="/dusun-wates">
+                        Dusun wates
+                      </a>
+                      <a class="dropdown-item " href="/dusun-warugunung-tengah">
+                        Dusun WaruGunung Tengah
+                      </a>
+                      <a class="dropdown-item " href="/dusun-warugunung-lor">
+                        Dusun WaruGunung Lor
+                      </a>
+                      <a class="dropdown-item " href="/dusun-kupang">
+                        Dusun Kupang
+                      </a>
+                      <a class="dropdown-item " href="/dusun-pasinan-kulon">
+                        Dusun Pasinan Kulon
+                      </a>
+                      <a class="dropdown-item " href="/dusun-pasinan-wetan">
+                        Dusun Pasinan Wetan
+                      </a>
 
+                </div>
+              </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarLandings" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Unit Usaha
