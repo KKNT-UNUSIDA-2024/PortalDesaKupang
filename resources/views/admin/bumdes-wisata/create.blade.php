@@ -101,21 +101,4 @@
             }
         }
     </script>
-    <script>
-        function formatRupiah(input) {
-            // Menghapus semua karakter yang bukan angka
-            let value = input.value.replace(/[^0-9]/g, '');
-
-            // Format angka ke dalam format rupiah
-            const formattedValue = new Intl.NumberFormat('id-ID', {
-                style: 'currency',
-                currency: 'IDR',
-                minimumFractionDigits: 0,
-                maximumFractionDigits: 0
-            }).format(value);
-
-            // Menghapus prefix "Rp" untuk menyimpan angka asli
-            input.value = formattedValue;
-        }
-    </script>
 </x-app-layout>

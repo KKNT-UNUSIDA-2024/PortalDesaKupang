@@ -16,12 +16,15 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('posts/{slug}', [PostController::class, 'show'])->name('posts.show');
 
+Route::get('/blog', [PostController::class, 'allPosts'])->name('posts.index');
 
 
-Route::middleware(['auth'])->prefix('admin/dashboard')->name('admin.')->group(function () {
+
+Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('posts', PostController::class);
     Route::post('posts/upload', [PostController::class, 'upload'])->name('posts.upload');
 });
+Route::get('/blog', [PostController::class, 'allPosts'])->name('posts.index');
 
 
 

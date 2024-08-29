@@ -98,5 +98,12 @@ class PostController extends Controller
         $post = Post::where('slug', $slug)->firstOrFail();
         return view('posts.show', compact('post'));
     }
+
+    public function allPosts()
+{
+    $posts = Post::paginate(1); // Mengambil semua postingan dengan pagination
+    return view('posts.index', compact('posts'));
+}
+
 }
 

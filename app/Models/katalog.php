@@ -10,7 +10,7 @@ class katalog extends Model
         use HasFactory;
 
         protected $table = 'katalog';
-        
+
         // Tentukan nama tabel
         protected $fillable = [
                 'nama_wisata',

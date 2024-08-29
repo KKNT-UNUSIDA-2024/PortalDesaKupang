@@ -32,8 +32,8 @@
                       <a class="dropdown-item " href="{{ route('profile-desa.show') }}">
                         Profil Desa
                       </a>
-                      <a class="dropdown-item" href="">
-                        Berita Desa X
+                      <a class="dropdown-item" href="{{ route('posts.index') }}">
+                        Berita Desa
                       </a>
                       <a class="dropdown-item " href="{{ route('dusun.visitors') }}">
                         Data Dusun

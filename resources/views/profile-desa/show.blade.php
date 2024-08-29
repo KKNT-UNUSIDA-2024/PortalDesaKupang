@@ -28,14 +28,14 @@
         <div class="row">
             <div class="col">
                 <!-- Header -->
-                <div class="header" style="height: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                <div class="header">
                     <!-- Logo Desa -->
                     @if($profileDesa->logo_desa)
-                        <img src="{{ asset('storage/' . $profileDesa->logo_desa) }}" alt="Logo Desa" style="max-width: 150px; margin-bottom: 10px;">
+                        <img src="{{ asset('storage/' . $profileDesa->logo_desa) }}" alt="Logo Desa" style="max-width: 150px;">
                     @endif
 
                     <!-- Nama Desa -->
-                    <h1 class="mb-2">{{ $profileDesa->nama_desa }}</h1>
+                    <h1 class="mb-2">Desa {{ $profileDesa->nama_desa }}</h1>
 
                     <!-- Alamat Desa -->
                     <p class="text-muted">{{ $profileDesa->alamat_desa }}</p>

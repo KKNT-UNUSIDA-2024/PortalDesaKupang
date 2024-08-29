@@ -9,33 +9,99 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <form action="{{ route('admin.dusun.update', $dusun->id) }}" method="POST" enctype="multipart/form-data">
+                    <div class="container mx-auto px-4 py-6">
+
+                        <meta name="csrf-token" content="{{ csrf_token() }}">
                         @csrf
-                        @method('PUT')
-                        <div>
-                            <label for="nama">Nama Dusun</label>
-                            <input type="text" name="nama" value="{{ $dusun->nama }}" required>
-                        </div>
-                        <div>
-                            <label for="jumlah_rt">Jumlah RT</label>
-                            <input type="number" name="jumlah_rt" value="{{ $dusun->jumlah_rt }}" required>
-                        </div>
-                        <div>
-                            <label for="jumlah_rw">Jumlah RW</label>
-                            <input type="number" name="jumlah_rw" value="{{ $dusun->jumlah_rw }}" required>
-                        </div>
-                        <div>
-                            <label for="deskripsi">Deskripsi</label>
-                            <textarea name="deskripsi">{{ $dusun->deskripsi }}</textarea>
-                        </div>
-                        <div>
-                            <label for="gambar">Gambar</label>
-                            <input type="file" name="gambar[]" multiple> <!-- Mengizinkan beberapa gambar -->
-                        </div>
-                        <button type="submit">Update</button>
-                    </form>
+                        <form action="{{ route('admin.dusun.update', $dusun) }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+                            <div class="mb-4">
+                                <label for="nama" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nama Dusun</label>
+                                <input type="text" id="nama" name="nama" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" value="{{ old('nama', $dusun->nama) }}" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="jumlah_rt" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Jumlah RT</label>
+                                <input type="number" id="jumlah_rt" name="jumlah_rt" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" value="{{ old('jumlah_rt', $dusun->jumlah_rt) }}" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="jumlah_rw" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Jumlah RW</label>
+                                <input type="number" id="jumlah_rw" name="jumlah_rw" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" value="{{ old('jumlah_rw', $dusun->jumlah_rw) }}" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="deskripsi" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Deskripsi</label>
+                                <textarea id="deskripsi" name="deskripsi" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200">{{ old('deskripsi', $dusun->deskripsi) }}</textarea>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="gambar" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Gambar</label>
+                                <input type="file" id="gambar" name="gambar[]" multiple class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200">
+                                @if($dusun->gambar)
+                                    <div class="mt-2">
+                                        @foreach(json_decode($dusun->gambar) as $image)
+                                            <img src="{{ asset('storage/' . $image) }}" alt="Gambar Dusun" style="width: 100px; height: auto; margin-right: 10px;">
+                                        @endforeach
+                                    </div>
+                                @endif
+                            </div>
+
+                            <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-md">Update</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
+
+    <script>
+        tinymce.init({
+            license_key: 'gpl',
+            selector: 'textarea#deskripsi',
+            width: '100%', // Lebar 100% dari kontainer
+            setup: function (editor) {
+                editor.on('init change', function () {
+                    editor.save();
+                });
+            },
+            plugins: [
+                "advlist autolink lists link image charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table contextmenu paste imagetools"
+            ],
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+            content_css: [
+                '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+                '//www.tinymce.com/css/codepen.min.css'
+            ],
+            image_title: true,
+            automatic_uploads: true,
+            images_upload_url: '',
+            file_picker_types: 'image',
+            file_picker_callback: function(cb, value, meta) {
+                var input = document.createElement('input');
+                input.setAttribute('type', 'file');
+                input.setAttribute('accept', 'image/*');
+                input.onchange = function() {
+                    var file = this.files[0];
+
+                    var reader = new FileReader();
+                    reader.readAsDataURL(file);
+                    reader.onload = function () {
+                        var id = 'blobid' + (new Date()).getTime();
+                        var blobCache =  tinymce.activeEditor.editorUpload.blobCache;
+                        var base64 = reader.result.split(',')[1];
+                        var blobInfo = blobCache.create(id, file, base64);
+                        blobCache.add(blobInfo);
+                        cb(blobInfo.blobUri(), { title: file.name });
+                    };
+                };
+                input.click();
+            }
+        });
+    </script>
 </x-app-layout>
