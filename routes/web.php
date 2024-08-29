@@ -1,15 +1,29 @@
 <?php
 
+
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KatalogController;
 use App\Http\Controllers\BumdesWisataController;
 use App\Http\Controllers\ProfilDesaController;
 use App\Http\Controllers\DusunController;
+use App\Http\Controllers\HomeController;
+use App\Models\Post; // Pastikan untuk mengimpor model Post
 
-Route::get('/', function () {
-    return view('index');
+// Route untuk halaman depan
+Route::get('/', [HomeController::class, 'index']);
+
+Route::get('posts/{slug}', [PostController::class, 'show'])->name('posts.show');
+
+
+
+Route::middleware(['auth'])->prefix('admin/dashboard')->name('admin.')->group(function () {
+    Route::resource('posts', PostController::class);
+    Route::post('posts/upload', [PostController::class, 'upload'])->name('posts.upload');
 });
+
+
 
 Route::get('admin', function () {
     return view('admin.dashboard');
